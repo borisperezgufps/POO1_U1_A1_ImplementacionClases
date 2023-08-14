@@ -12,27 +12,28 @@ public class Biblioteca {
 	
 	/*
 	 * -----------------------------------
-	 * MÉTODOS
+	 * Mï¿½TODOS
 	 * -----------------------------------
 	 */
 	
 	public Biblioteca() {
 		libros = new Libro[6];
-		// Para qué se invoca este método?
+		// Para quï¿½ se invoca este mï¿½todo?
 		llenarBiblioteca();		
 	}
 	
 	/**
-	 * Se encarga de buscar el libro, revisar si está disponible, 
+	 * Se encarga de buscar el libro, revisar si estï¿½ disponible, 
 	 * y prestarlo.
+	 * Resuelve el requerimiento RF1.
 	 * @param idLibro
 	 */
 	public void prestarLibro(String idLibro) throws Exception {
 		
-		boolean seHizoPrestamo = false; // Para qué se usa esta variable? Revise el código.
+		boolean seHizoPrestamo = false; // Para quï¿½ se usa esta variable? Revise el cï¿½digo.
 		
 		for(int t=0;t<libros.length;t++) {			
-			if(libros[t]!=null) { // Por qué debe hacerse esta pregunta?
+			if(libros[t]!=null) { // Por quï¿½ debe hacerse esta pregunta?
 				Libro lib = libros[t];
 				if(lib.getId().equals(idLibro)) {
 					if(!lib.isPrestado()) {
@@ -47,20 +48,21 @@ public class Biblioteca {
 		}
 		
 		if(!seHizoPrestamo)
-			throw new Exception("El libro no se encontró. Por favor, verifique el identificador.");
+			throw new Exception("El libro no se encontrï¿½. Por favor, verifique el identificador.");
 		
 	}
 	
 	/**
-	 * Se encarga de buscar un libro que se prestó, validar si es de colección, y calcular
+	 * Se encarga de buscar un libro que se prestï¿½, validar si es de colecciï¿½n, y calcular
 	 * la multa, en caso de que haya.
+	 * Resuelve el requerimiento RF2.
 	 * @param idLibro
 	 * @param diasPrestado
 	 * @throws Exception
 	 */
 	public void devolverLibro(String idLibro, int diasPrestado) throws Exception {
 		for(int t=0;t<libros.length;t++) {			
-			if(libros[t]!=null) { // Por qué debe hacerse esta pregunta?
+			if(libros[t]!=null) { // Por quï¿½ debe hacerse esta pregunta?
 				Libro lib = libros[t];
 				if(lib.getId().equals(idLibro)) {
 					if(lib.isPrestado()) {
@@ -76,13 +78,13 @@ public class Biblioteca {
 							else
 								valorMulta = diasMulta * 1000;
 							
-							// Por qué se lanzó un mensaje? Se hubiera podido retornar el valor de la multa?
-							// Cuándo es necesario retornar el valor?
-							throw new Exception("Este libro generó multa por vencimiento de días. El valor a pagar es: "+valorMulta);
+							// Por quï¿½ se lanzï¿½ un mensaje? Se hubiera podido retornar el valor de la multa?
+							// Cuï¿½ndo es necesario retornar el valor?
+							throw new Exception("Este libro generï¿½ multa por vencimiento de dï¿½as. El valor a pagar es: "+valorMulta);
 						}
 							
 					}else
-						throw new Exception("Este libro no está prestado. Verifique el identificador.");
+						throw new Exception("Este libro no estï¿½ prestado. Verifique el identificador.");
 				}
 			}
 		}		
@@ -91,22 +93,22 @@ public class Biblioteca {
 	
 	/*
 	 * -----------------------------------
-	 * MÉTODOS AUXILIARES
+	 * Mï¿½TODOS AUXILIARES
 	 * -----------------------------------
 	 */
 	
-	public void llenarBiblioteca() {
+	private void llenarBiblioteca() {
 		
 		Libro lib = new Libro("001", "La ausencia de un profesor", true);		
 		libros[0] = lib;
 		
-		lib = new Libro("002", "Aprenda programación en 2 días", false);		
+		lib = new Libro("002", "Aprenda programaciï¿½n en 2 dï¿½as", false);		
 		libros[1] = lib;
 		
-		lib = new Libro("003", "Por qué quise estudiar esto?", false);		
+		lib = new Libro("003", "Por quï¿½ quise estudiar esto?", false);		
 		libros[2] = lib;
 		
-		lib = new Libro("004", "Un enfoque práctico para superar el curso", true);		
+		lib = new Libro("004", "Un enfoque prï¿½ctico para superar el curso", true);		
 		libros[3] = lib;
 		
 		lib = new Libro("005", "Una luz al final. Mi experiencia luego de casi perder el curso", false);		
